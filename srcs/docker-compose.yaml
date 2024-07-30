@@ -1,0 +1,78 @@
+
+services:
+  auth-service:
+    container_name: auth-service
+    build: ./requirements/auth-service
+    ports:
+      - "8000"
+    env_file :
+      - .env
+    networks:
+      - backend
+    depends_on:
+      - db
+
+  userman-service:
+    container_name: userman-service
+    build: ./requirements/userman_service
+    ports:
+      - "8000"
+    env_file :
+      - .env
+    networks:
+      - backend
+    depends_on:
+      - db
+      # - auth-service
+
+  tournament_service:
+    container_name: tournament_service
+    build: ./requirements/tournament_service
+    ports:
+      - "8000"
+    env_file :
+      - .env
+    networks:
+      - backend
+    depends_on:
+      - db
+      - auth-service
+    # command: >            # auth problem - added
+    #   sh -c "
+    #     python manage.py migrate &&
+    #     python manage.py runserver 0.0.0.0:8000
+    #   "
+
+  frontend-service:
+    container_name: frontend-service
+    build: ./requirements/frontend-service
+    env_file :
+      - .env
+    ports:
+      - "4443:443"
+    depends_on:
+      - db
+      - auth-service
+      - userman-service
+      - tournament_service
+    networks:
+      - backend
+
+  db:
+    container_name: db
+    build: ./requirements/db
+    ports:
+      - "5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    env_file :
+      - .env
+    networks:
+      - backend
+volumes:
+  db_data:
+    driver: local
+
+networks:
+  backend:
+    driver: bridge

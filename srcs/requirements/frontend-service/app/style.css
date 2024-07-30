@@ -1,0 +1,1364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap');
+
+
+@font-face {
+    font-family: 'Starjedi';
+    src: url('assets/Starjedi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+#space {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #131419;
+  }
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('assets/background.png') no-repeat center center/cover;
+}
+
+#app {
+    padding: 20px;
+    height: 100%;
+    place-items: center;
+    display: grid;
+    text-align: center;
+}
+
+#home .homeBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#home .home-arcade-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('assets/dashboard.png') no-repeat center center/cover;
+}
+
+#home .arcade-panel {
+    height: 100%;
+    width: 100%;
+    /* display: flex;
+    align-items: center; */
+    /* position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    transition: transform 1s ease; */
+}
+
+#home .screen {
+    position: relative;
+    top: 29%;
+    /* width: 15%;
+    height: 30%; */
+    width: 280px;
+    height: 300px;
+    /* width: 15%;
+    height: 30%; */
+    width: 280px;
+    height: 300px;
+    transform: perspective(600px) rotateX(20deg);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#home .option {
+    background-image: url('assets/button.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ffffff00;
+    width: 200px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Press Start 2P', sans-serif;
+    margin: 2% auto;
+}
+
+#home .option:active {
+    background-image: url('assets/press-button.png');
+}
+
+/* Ce panel contiendra les options de base (logout, profile, settings, friends) et se trouve en haut de l'ecran de maniere horizontale */
+#home .home-arcade-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 15px 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    /* background-color: green; */
+}
+
+#home .home-arcade-button .home-panel {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+#home .home-arcade-button .home-panel button {
+    padding: 10px 5px;
+    border: none;
+    outline: none;
+    background: #ffffff00;
+    color: #faff05;
+    text-align: center;
+    border-bottom: #faff05 4px solid;
+    font-family: 'Press Start 2P', sans-serif;
+    font-weight: 1200;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#home .home-arcade-button .home-panel button:hover {
+    border-bottom: none;
+    transition: border-bottom 0.5s;
+}
+
+#home .home-arcade-button #logoutButton {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    padding: 10px 20px;
+}
+
+#home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#home .homePage
+{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    transition: transform 1s ease;
+}
+
+#login {
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 330px;
+    padding: 40px 30px;
+    color: #e0e0e0;
+}
+
+#login h1 {
+    font-size: 30px;
+    margin-bottom: 100px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#login form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#login input {
+    border: none;
+    padding: 10px 20px;
+    background-color: #08430600;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+}
+
+#login button {
+    position: relative;
+    left: 20%;
+}
+
+#login button:active {
+    background-image: url('assets/press-button.png');
+}
+
+#login .sign-up-link {
+    margin: 10px auto;
+    color: #8c8c8c;
+    font-size: 16px;
+}
+
+#login .sign-up-link a {
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+    text-decoration: none;
+}
+
+#login .sign-up-link a:hover {
+    text-decoration: underline;
+}
+
+#login .invalid-otp {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    color: rgba(255, 0, 0, 0.5);
+    width: 600px;
+}
+
+#homeButton {
+    top: 45%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.homeButtonCss {
+    background-image: url('assets/button.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #ffffff00;
+    width: 200px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Press Start 2P', sans-serif;
+}
+
+
+/* #register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 330px;
+    background-color: #131419;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5),
+                -3px -3px 7px rgba(255, 255, 255, 0.05);
+    color:#e0e0e0;
+} */
+
+/* #register {
+    height: 100%;
+    width: 100%;
+} */
+
+/* #register .register-page {
+    position: relative;
+    top: 4%;
+    width: 45%;
+    height: 75%;
+    transform: perspective(600px) rotateX(8deg);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+} */
+
+#register .register-page {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    padding: 40px 30px;
+    color: #e0e0e0;
+    margin-bottom: 30%;
+    transform: perspective(600px) rotateX(8deg);
+}
+
+#register h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#register form {
+    width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#register input {
+    border: none;
+    padding: 10px 20px;
+    background-color: #08430600;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+#register .two-fa-button {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    left: 10px;
+}
+
+#register .two-fa-button input {
+    height: 100%;
+    width: 100%;
+    background: #131419;
+    outline: none;
+}
+
+#register .two-fa-button .checkbox {
+    height: 40px;
+    width: 100px;
+    position: relative;
+}
+
+#register .checkbox input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background: #8c8c8c;
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#register .checkbox input:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background: #faff05;
+    border-radius: 50%;
+    transition: left 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+}
+
+#register .checkbox input:checked:before {
+    left: 65px;
+}
+
+#register .two-fa-label:before {
+    width: 400px;
+    content: 'Authentification à deux facteurs';
+    float: right;
+    color: #00FF00;
+    margin-left: 20px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    overflow: clip;
+}
+
+#register .two-fa-label.check:before {
+    content: 'Authentification à deux facteurs activée';
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+  }
+
+
+#register button {
+    position: relative;
+    left: 35%;
+}
+
+#register button:active {
+    background-image: url(assets/press-button.png);
+}
+
+#register .sign-up-link {
+    margin: 10px auto;
+    color: #8c8c8c;
+    font-size: 16px;
+}
+
+#register .sign-up-link a {
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+    text-decoration: none;
+}
+
+#register .sign-up-link a:hover {
+    text-decoration: underline;
+}
+
+#register .password-policy {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    color: rgba(255, 0, 0, 0.5);
+}
+
+#register_2fa {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    background-color: transparent;
+    padding: 40px 30px;
+    border-radius: 10px;
+    color: #e0e0e0;
+}
+
+#register_2fa h1 {
+    font-size: 30px;
+    margin-bottom: 70px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#register_2fa .qr-code img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+
+}
+
+#register_2fa .otp-input-container {
+    position: relative;
+    display: flex; /* Aligner les inputs horizontalement */
+    gap: 10px; /* Espacement entre les inputs */
+}
+
+#register_2fa .otp-input-container input {
+    margin: 20px auto;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 4px solid #00FF00;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+}
+
+#register_2fa .submit-button {
+    margin: 20px auto;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#register_2fa .submit-button:active {
+    background-image: url(assets/press-button.png);
+}
+
+#register_2fa .invalid-otp {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    color: rgba(255, 0, 0, 0.5);
+}
+
+
+/* #login_2fa {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    background-color: transparent;
+    padding: 40px 30px;
+    border-radius: 10px;
+    color: #e0e0e0;
+} */
+
+#login_2fa {
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 330px;
+    padding: 40px 30px;
+    color: #e0e0e0;
+}
+
+#login_2fa h1 {
+    font-size: 30px;
+    margin-bottom: 150px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#login_2fa .otp-input-container {
+    position: relative;
+    display: flex; /* Aligner les inputs horizontalement */
+    gap: 10px; /* Espacement entre les inputs */
+}
+
+#login_2fa .otp-input-container input {
+    margin: 20px auto;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 4px solid #00FF00;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+}
+
+#login_2fa .submit-button {
+    margin: 20px auto;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#login_2fa .submit-button:active {
+    background-image: url(assets/press-button.png);
+}
+
+#login_2fa .invalid-otp {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    color: rgba(255, 0, 0, 0.5);
+}
+
+.profilPage {
+    position: relative;
+    transform: perspective(600px) rotateX(7deg);
+    width: 90vh;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    width: 90%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+
+}
+
+.user-info h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+.user-info h2 {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: #00FF00;
+}
+.user-info button {
+    width: 200px;
+    height: 50px;
+    content: "Modifier";
+}
+
+.user-info button:active {
+    background-image: url(assets/press-button.png);
+}
+
+.gameHistory {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gameHistory #gameHistoryTable thead {
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+.gameHistory #gameHistoryTable tbody {
+    color: #00FF00;
+}
+
+.gameHistory .pagination button {
+    color: #00FF00;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 10px;
+}
+
+.gameHistory .pagination button:hover {
+    border-bottom: 2px solid #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+
+.profilPage .infoModifier {
+    position: relative;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.profilPage .infoModifier input {
+    border: none;
+    padding: 10px 20px;
+    background-color: #08430600;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+    text-align: center;
+}
+
+.profilPage .avatarModifier {
+    position: relative;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.profilPage .avatarModifier form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.profilPage .avatarModifier input {
+    border: none;
+    padding: 10px 20px;
+    background-color: #08430600;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+    text-align: center;
+}
+
+.profilPage .avatarModifier input[type="submit"] {
+    width: 120px;
+    border-bottom: 2px solid #00FF00;
+    cursor: pointer;
+
+}
+
+.profilPage .avatarModifier input[type="submit"]:hover {
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+.profilPage .avatarModifier input[type="file"] {
+    width: 300px;
+
+}
+
+.friendsPage {
+    position: relative;
+    transform: perspective(600px) rotateX(7deg);
+    width: 90vh;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+}
+
+.friendsPage h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+.friendsPage input {
+    border: none;
+    padding: 10px 20px;
+    background-color: #08430600;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+    text-align: center;
+
+}
+
+.friendsPage .addNewFriend {
+    margin-bottom: 50px;
+}
+
+.friendsPage .addNewFriend button {
+    background: none;
+    border: none;
+    outline: none;
+    color: #00FF00;
+    font-family: 'Press Start 2P', sans-serif;
+    cursor: pointer;
+    border-bottom: 2px solid #00FF00;
+}
+
+.friendsPage .addNewFriend button:hover {
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+.friendsPage .friendsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+}
+
+.friendsPage .friendsContent #friendsTable {
+    width: 100%;
+    gap: 20px;
+}
+
+.friendsPage .friendsContent #friendsTable thead {
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+.friendsPage .friendsContent #friendsTable tbody {
+    color: #00FF00;
+}
+
+.friendsPage .friendsContent .pagination button {
+    color: #00FF00;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 10px;
+}
+
+.friendsPage .friendsContent .pagination button:hover {
+    border-bottom: 2px solid #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#soloGame canvas {
+    transform: perspective(600px) rotateX(7deg);
+    background: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.gameCanva {
+	position: relative;
+	width: 800px;
+	height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gameCanva .settingsContainer {
+    position: relative;
+    top: 40%;
+    left: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.gameCanva input {
+    width: 200px;
+    padding: 20px;
+}
+
+.gameCanva input[type="range"] {
+    width: 200px;
+    height: 5px;
+}
+
+
+.gameCanva input[type="color"] {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.gameCanva input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.gameCanva input[type="color"]::-webkit-color-swatch {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.gameCanva input[type="text"]
+{
+    width: 300px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 10px;
+    color:#00FF00;
+}
+
+.gameCanva div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+.gameCanva div label {
+    width: 200px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    text-align: center;
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 10px;
+    color:#00FF00;
+}
+
+.gameCanva button {
+    /* position: relative;
+    top: 40%;
+    left: 35%; */
+    width: 200px;
+}
+
+#iaGame canvas {
+    transform: perspective(600px) rotateX(7deg);
+    background: transparent;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* #iaGame .gameCanva {
+	position: relative;
+	width: 800px;
+	height: 600px;
+} */
+
+
+/* CREATE TOURNAMENT */
+
+#createTournament {
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding: 40px 30px;
+    color: #00FF00;
+    gap: 20px;
+}
+
+#createTournament h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#createTournament input {
+    border: none;
+    padding: 10px 20px;
+    background: none;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+    text-align: center;
+}
+
+#createTournament h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#createTournament ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#createTournament li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    gap: 20px;
+}
+
+
+
+#createTournament form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#createTournament .addPlayerToTournament {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-height: 800px) {
+
+#home .home-arcade-button {
+    background-color: #faff05;
+    transition: 1s ease;
+}
+
+#home .home-arcade-button .home-panel button {
+    color: black;
+    border-bottom: black 4px solid;
+    transition: 1s ease;
+}
+
+#home .home-arcade-button .option {
+    background-image: none;
+
+}
+
+}
+
+
+#createTournament #goBackToHomeButton {
+    width: 160px;
+    height: 40px;
+}
+
+/* PREVIEW TOURNAMENT */
+
+
+#previewTournament ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 120%;
+    text-align: center;
+}
+
+
+#previewTournament {
+    position: absolute;
+    top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding: 40px 30px;
+    color: #00FF00;
+    gap: 20px;
+}
+
+
+#previewTournament h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#previewTournament input {
+    border: none;
+    padding: 10px 20px;
+    background: none;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+    text-align: center;
+}
+
+#previewTournament h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#previewTournament ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#previewTournament li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    gap: 20px;
+}
+
+
+
+#previewTournament form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#previewTournament .addPlayerToTournament {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* IN TOURNAMENT DISPLAY */
+
+
+#inTournamentDisplay ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#inTournamentDisplay ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#inTournamentDisplay {
+    position: absolute;
+    top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding: 40px 30px;
+    color: #00FF00;
+    gap: 20px;
+}
+
+
+#inTournamentDisplay h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#inTournamentDisplay input {
+    border: none;
+    padding: 10px 20px;
+    background: none;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+    text-align: center;
+}
+
+#inTournamentDisplay h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#inTournamentDisplay ul {
+    list-style-type: none;
+    padding: 0;
+    margin: -15px;
+}
+
+#inTournamentDisplay li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    gap: 20px;
+    width: 160%;
+}
+
+#inTournamentDisplay p {
+    width: 200%;
+    margin-top: 0px;
+}
+
+#inTournamentDisplay form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#inTournamentDisplay .addPlayerToTournament {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#inTournamentDisplay #startNextMatchButton {
+    width: 320px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+#inTournamentDisplay #giveUpHomeButton {
+    width: 50%;
+    height: 60px;
+}
+
+/* Style for the scroll container */
+.scroll-container {
+    height: 120px; /* Adjust height as needed */
+    width: 140%; /* Adjust width as needed */
+    overflow: hidden; /* Ensure content does not overflow */
+    position: relative;
+    /* border: 1px solid #770a0a; */
+    /* background: #f9f9f9; */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Style for the scrolling content */
+.scroll-content {
+    height: 100%;
+    width: 700px; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    position: absolute;
+    animation: scroll-up 4s linear infinite; /* Adjust duration as needed */
+    text-align: center; /* Center text horizontally */
+}
+
+/* Keyframes for vertical scroll animation */
+@keyframes scroll-up {
+    0% { top: 100%; } /* Start from below the container */
+    100% { top: -100%; } /* Scroll up to fully above the container */
+}
+
+/* Style for the matches list */
+.matches-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Ensure it spans full width of .scroll-content */
+}
+
+/* Style for individual list items */
+.matches-list li {
+    padding: 5px 10px; /* Adjust padding as needed */
+    text-align: center; /* Center text horizontally within the list item */
+    width: 100%; /* Ensure each list item spans full width of .scroll-content */
+}
+
+
+/* Additional styles for blinking text */
+.blinking {
+    /* Add any styles you need for blinking effect */
+}
+
+/* Example for larger blinking text */
+.blinking-large {
+    font-size: 1.5em; /* Adjust size as needed */
+    color: red; /* Adjust color as needed */
+    animation: blink-animation 1s step-start 0s infinite; /* Example blinking effect */
+}
+
+.blinking-large-large {
+    font-size: 2em; /* Adjust size as needed */
+    color: red; /* Adjust color as needed */
+    animation: blink-animation 1s step-start 0s infinite; /* Example blinking effect */
+}
+
+@keyframes blink-animation {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.vs {
+    color: red; /* Change to your preferred color */
+    font-weight: bold; /* Optional: Make it bold */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Remove any default padding */
+}
+
+
+/* END TOURNAMENT DISPLAY */
+
+
+#endTournamentDisplay ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+#endTournamentDisplay {
+    position: absolute;
+    top: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    padding: 40px 30px;
+    color: #00FF00;
+    gap: 20px;
+}
+
+
+#endTournamentDisplay h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+#endTournamentDisplay input {
+    border: none;
+    padding: 10px 20px;
+    background: none;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #00FF00;
+    text-align: center;
+}
+
+#endTournamentDisplay h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #00FF00;
+    text-shadow: 0px 0px 8px #00FF00;
+}
+
+
+#endTournamentDisplay li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 160%;
+}
+
+#endTournamentDisplay p {
+    width: 200%;
+    margin-top: 0px;
+}
+
+#endTournamentDisplay form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+#endTournamentDisplay #ResetToHomeButton {
+    width: 50%;
+    margin-top: 20px;
+    height: 60px;
+    font-size: 20px;
+}

@@ -1,0 +1,385 @@
+TO DO
+
+ENDPOINTS
+- get points after a match
+- determine the winner at the end of the tournament
+
+----- ISSUES
+
+
+The error indicates that the auth_user table still does not exist when trying to apply the authtoken migration. This suggests that despite the auth migrations being listed as applied, the actual table might not be present in the database.
+
+get inside the container:
+   docker-compose run --rm tournament_service /bin/bash
+check migrations
+   python manage.py showmigrations
+check one by one
+   python manage.py migrate auth
+   python manage.py migrate contenttypes
+   python manage.py migrate sessions
+   python manage.py migrate authtoken
+   python manage.py migrate
+Apply individual migrations
+   python manage.py migrate auth
+   python manage.py migrate contenttypes
+   python manage.py migrate sessions
+   python manage.py migrate authtoken
+   python manage.py migrate
+Verify database state
+   apt-get update && apt-get install -y postgresql-client
+   psql -h db -U user -d tournament_db -c "\dt"
+
+from 2-6 players to 3-6 players
+
+----- ISSUES
+
+
+The error indicates that the auth_user table still does not exist when trying to apply the authtoken migration. This suggests that despite the auth migrations being listed as applied, the actual table might not be present in the database.
+
+get inside the container:
+   docker-compose run --rm tournament_service /bin/bash
+check migrations
+   python manage.py showmigrations
+check one by one
+   python manage.py migrate auth
+   python manage.py migrate contenttypes
+   python manage.py migrate sessions
+   python manage.py migrate authtoken
+   python manage.py migrate
+Apply individual migrations
+   python manage.py migrate auth
+   python manage.py migrate contenttypes
+   python manage.py migrate sessions
+   python manage.py migrate authtoken
+   python manage.py migrate
+Verify database state
+   apt-get update && apt-get install -y postgresql-client
+   psql -h db -U user -d tournament_db -c "\dt"
+
+
+---- DOCKER
+
+docker build -t tournament_service_image .
+docker run -d -p 8000:8000 --name tournament_service_container tournament_service_image
+docker logs -f tournament_service_container
+
+http://localhost:800
+
+docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q) && docker image prune -f && docker volume prune -f
+
+RESET
+   docker-compose down -v
+      => stop and remove all containers and associated volumes
+   docker-compose build
+      => rebuild
+   docker-compose up -d
+      => rebuild and restart containers
+
+SHOW ALL
+   echo "============" && docker ps -a && echo "============" && docker images -a && echo "============" && docker volume ls && echo "============" && docker network ls && echo "============"
+
+---- GITHUB
+
+   > push into another bracnh
+git checkout -b new-branch-name
+git add .
+git commit -m "Description of the changes made"
+git push origin new-branch-name
+
+
+   > Merge changes back to the main branch
+git checkout main
+git pull origin main
+git merge new-branch-name
+git push origin main
+
+   > keep update the new branch
+git checkout new-branch-name
+git fetch origin
+git rebase origin/main
+
+git add path/to/resolved-file
+git rebase --continue
+git rebase --abort
+git push --force-with-lease origin new-branch-name
+
+   > push on my branch
+   git branch  => verify which branch
+   git checkout tournament_service
+
+git pull origin tournament_service
+git add .
+git commit -m "Describe your changes here"
+git push origin tournament_service
+
+
+---- CONNECT
+
+Rsl
+Raph
+RaphRsl
+rapahel.roussel@edhec.com
+Motdepasse42!
+2FA activated
+
+---- TEST MY PART MANUALLY (contourner auth)
+
+docker exec -it <container_id> bash
+cd /app
+python manage.py makemigrations matchmaking
+python manage.py migrate
+python manage.py runserver 0.0.0.0:8000
+
+OR USE TESTS.PY FILE
+
+docker run --name local-postgres -e POSTGRES_USER=test_user -e POSTGRES_PASSWORD=test_password -e POSTGRES_DB=test_tournament_db -p 5432:5432 -d postgres
+python manage.py test matchmaking
+docker exec -it <container_id_or_name> bash -c "python manage.py test matchmaking"
+
+---
+
+Context: as part of the transcendence project I  want to develop a matchmaking system that allows 2 to 6 players to participate in a tournament. When a player is registered on the game website, he can create a tournament in local. Players can then add their names on the tournament creation page, from 2 to 6 players. Once everybody is registered, we can press a ready button, and it displays a tournament planning of the matches to come. Then we can launch the tournament, playing each match one at a time, on the same screen (the 2 opponents share the same keyboard). The tournament type will be round robin. Between all matches, there is a ready? screen, with a summary of the tournament so far, and a ready button to launch the game. Once the tournament is done, it displays a sumary and the winner name. If there are players with the same number of wins, we chose the winner regarding the max points scored. Someone else coded the game, i do not need to do it, and someone else is working on the user management part. All I need is to get the players names, do the matchmaking, get the scores at the end of the game, display the results and finally be able to give the scores to the guy managing the users.
+
+1 Set Up Models
+2 Create Serializers
+3 Develop Views
+4 Set Up URLs
+5 Implement Business Logic
+6 Integrate with User Management
+7 Testing and Debugging
+8 Deployment and Integration
+
+---
+
+step 2
+	frontend creates an api ? why not me with a url redirection ?
+
+create the user interface that will interract with my API : who not me doing the webpage ?
+
+---
+
+dockerfile ? to update + requirements + script
+
+---
+
+### InTournament GLOBAL VARIABLE
+
+GET /api/in_tournament/ to fetch the current state of inTournament
+POST /api/set_in_tournament/ to set the state of inTournament
+
+GET VALUE
+   curl -X GET "/api/tournaments/global-state/in_tournament/" -H "Content-Type: application/json"
+SET VALUE TRUE
+   curl -X POST "/api/tournaments/global-state/set_in_tournament/" -H "Content-Type: application/json" -d '{"in_tournament": "true"}'
+SET VALUE FALSE
+   curl -X POST "/api/tournaments/global-state/set_in_tournament/" -H "Content-Type: application/json" -d '{"in_tournament": "false"}'
+
+
+### Player Endpoints
+
+1. **Create a Player**
+   - **Method**: POST
+   - **URL**: `/api/tournaments/players/`
+
+2. **Retrieve All Players**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/players/`
+
+3. **Retrieve a Single Player**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/players/{id}/`
+
+4. **Update a Player**
+   - **Method**: PUT
+   - **URL**: `/api/tournaments/players/{id}/`
+
+5. **Delete a Player**
+   - **Method**: DELETE
+   - **URL**: `/api/tournaments/players/{id}/`
+
+### Tournament Endpoints
+
+1. **Create a Tournament**
+   - **Method**: POST
+   - **URL**: `/api/tournaments/tournaments/`
+
+2. **Retrieve All Tournaments**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/tournaments/`
+
+3. **Retrieve a Single Tournament**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/tournaments/{id}/`
+
+4. **Update a Tournament**
+   - **Method**: PUT
+   - **URL**: `/api/tournaments/tournaments/{id}/`
+
+5. **Delete a Tournament**
+   - **Method**: DELETE
+   - **URL**: `/api/tournaments/tournaments/{id}/`
+
+6. **Create Matches for a Tournament**
+   - **Method**: POST
+   - **URL**: `/api/tournaments/tournaments/{id}/create_matches/`
+
+### Match Endpoints
+
+1. **Retrieve All Matches**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/matches/`
+
+2. **Retrieve a Single Match**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/matches/{id}/`
+
+3. **Record Match Result**
+   - **Method**: POST
+   - **URL**: `/api/tournaments/matches/{id}/record/`
+
+4. **Update a Match**
+   - **Method**: PUT
+   - **URL**: `/api/tournaments/matches/{id}/`
+
+5. **Delete a Match**
+   - **Method**: DELETE
+   - **URL**: `/api/tournaments/matches/{id}/`
+
+### Score Endpoints
+
+1. **Retrieve All Scores**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/scores/`
+
+2. **Retrieve Scores for a Tournament**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/scores/tournament/{tournament_pk}/`
+
+3. **Retrieve a Single Score**
+   - **Method**: GET
+   - **URL**: `/api/tournaments/scores/{id}/`
+
+4. **Update a Score**
+   - **Method**: PUT
+   - **URL**: `/api/tournaments/scores/{id}/`
+
+5. **Delete a Score**
+   - **Method**: DELETE
+   - **URL**: `/api/tournaments/scores/{id}/`
+
+
+--- QUERY MODELS DATA
+
+if changes in the models.py, need to restart the container
+   docker compose restart tournament_service
+
+   # shell
+docker ps
+docker exec -it tournament_service bash
+   # inside the container
+python manage.py shell
+   # in python shell
+from matchmaking.models import Tournament
+tournaments = Tournament.objects.all()
+for tournament in tournaments:
+    print(tournament)
+
+------ simulate API calls
+
+curl -X POST "/api/tournaments/tournaments/" -H "Content-Type: application/json" -d '{
+  "name": "Test Tournament",
+  "players": ["Player A", "Player B", "Player C"]
+}'
+
+curl -X GET "/api/tournaments/tournaments/"
+
+curl -X GET "/api/tournaments/matches/"
+
+
+
+##################################################
+##################################################
+### USAGE FOR GLOBAL VARIABLE InTournament
+
+// get the value of the in_tournament global state
+async function getInTournament() {
+    try {
+        const response = await fetch('/api/tournaments/global-state/in_tournament/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Failed to get in_tournament state: ${errorText}`);
+        }
+
+        const data = await response.json();
+        return data.in_tournament;
+    } catch (error) {
+        console.error('Error getting in_tournament state:', error);
+        throw error;
+    }
+}
+
+
+// set the value of the in_tournament global state
+async function setInTournament(value) {
+    try {
+        const response = await fetch('/api/tournaments/global-state/set_in_tournament/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ in_tournament: value.toString() })  // Send 'true' or 'false' as a string
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`Failed to set in_tournament state: ${errorText}`);
+        }
+
+        const data = await response.json();
+        if (!data.success) {
+            throw new Error(`Error setting in_tournament state: ${data.error}`);
+        }
+
+        //console.log('Successfully set in_tournament state.');
+    } catch (error) {
+        console.error('Error setting in_tournament state:', error);
+        throw error;
+    }
+}
+
+
+let inTournament = false;
+// get the value of the tournament_id global state
+try {
+    const API_inTournament = await getInTournament();
+    //console.log('LOG - Current state of in_tournament:', API_inTournament);
+	inTournament = API_inTournament;
+} catch (error) {
+    console.error('Error fetching in_tournament state:', error);
+}
+
+// set the value of the tournament_id global state to TRUE
+try {
+    await setInTournament(true);
+    //console.log('LOG - Set in_tournament to true.');
+} catch (error) {
+    console.error('Error setting in_tournament state:', error);
+}
+
+// set the value of the tournament_id global state to FALSE
+try {
+    await setInTournament(false);
+    //console.log('LOG - Set in_tournament to false.');
+} catch (error) {
+    console.error('Error setting in_tournament state:', error);
+}
+
+##################################################
+##################################################
+##################################################
