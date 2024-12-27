@@ -52,8 +52,9 @@ Le site permet aux joueurs de s'inscrire, de participer à des parties en direct
 ## Fonctionnement
 - Si vous voulez tester le projet, il vous faudra ajouter un fichier nommer .env dans le dossier **srcs** et le remplir comme ceci :
   ![demo_env](https://github.com/user-attachments/assets/73d7b587-726a-4e10-b4fa-a75a2c0e8a2c)
-  notes: N'oubliez pas d'ajouter le certificat ssl et sa cle.
--Plus qu'a faire make.
+
+notes: N'oubliez pas d'ajouter le certificat ssl et sa cle.
+Plus qu'a faire make.
 
 
 ### Contributor
