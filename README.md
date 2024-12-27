@@ -49,6 +49,13 @@ Le site permet aux joueurs de s'inscrire, de participer à des parties en direct
 ### Conteneurisation
 - Docker : L'ensemble du projet est déployé dans des conteneurs via Docker Compose pour un démarrage rapide.
 
+## Fonctionnement
+- Si vous voulez tester le projet, il vous faudra ajouter un fichier nommer .env dans le dossier **srcs** et le remplir comme ceci :
+  ![demo_env](https://github.com/user-attachments/assets/73d7b587-726a-4e10-b4fa-a75a2c0e8a2c)
+  notes: N'oubliez pas d'ajouter le certificat ssl et sa cle.
+-Plus qu'a faire make.
+
+
 ### Contributor
 - [tomteixeira](https://github.com/tomteixeira)
 - [Alexisflore](https://github.com/Alexisflore)
